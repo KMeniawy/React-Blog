@@ -5,7 +5,17 @@ module.exports = {
     './src/**/*.{js,jsx}',
   ],
   theme: {
-    extend: {},
+    mytheme: {
+      "primary": "#4f46e5",
+      "secondary": "#9be3f2",
+      "accent": "#d6be0e",
+      "neutral": "#1f2937",
+      "base-100": "#374151",
+      "info": "#8CCDE8",
+      "success": "#16a34a",
+      "warning": "#C36C09",
+      "error": "#EE203C",
+               },
   },
   plugins: [require("daisyui")],
 }
