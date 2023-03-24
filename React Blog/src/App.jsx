@@ -20,7 +20,7 @@ import RequireAuth from './pages/RequireAuth';
 function App() {
 
   return (
-    <>
+    <div>
       <Navbar/>
       <Routes>
         <Route element={RequireAuth}> {/* TODO */}
@@ -36,7 +36,7 @@ function App() {
         </Route>
       </Routes>
       <Footer/>
-    </>
+    </div>
 
   )
 }

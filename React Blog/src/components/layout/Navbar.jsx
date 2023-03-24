@@ -17,16 +17,16 @@ export default function Navbar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="text-white">
+              <a className="text-amber-500">
                 Profile
                 {/* <span className="badge">New</span> */}
               </a>
             </li>
             <li>
-              <a className="text-">Settings</a>
+              <a className="text-amber-500">Settings</a>
             </li>
             <li>
-              <a className="text-white">Logout</a>
+              <a className="text-amber-500">Logout</a>
             </li>
           </ul>
         </div>
