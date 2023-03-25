@@ -4,7 +4,7 @@ function UserIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="currentColor"
+      fill="#212121"
       height="2.5em"
       width="2.5em"
       {...props}
