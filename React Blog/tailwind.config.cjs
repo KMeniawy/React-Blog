@@ -5,6 +5,7 @@ module.exports = {
     './src/**/*.{js,jsx}',
   ],
   theme: {
+    fontFamily:{'nunito': ['monospace', 'Monaco'],'body':['Open Sans']},
     mytheme: {
       "primary": "#1e40af",
       "secondary": "#9be3f2",

@@ -23,16 +23,16 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
-        <Route element={RequireAuth}> {/* TODO */}
+        {/* <Route element={RequireAuth}> TODO */}
           <Route path='/post/:postId' element={<PostDetails/>}/> {/* TODO */}
           <Route path='/profile/:userId' element={<Profile/>}/> {/* TODO */}
           <Route path='/post/edit/:postId' element={<EditPost/>}/> {/* TODO */}
           <Route path='/settings' element={<Settings/>}/> {/* TODO */}
-        </Route>
-        <Route path='/' element={<Home/>}>
+        {/* </Route> */}
         <Route path='/login' element={<Login/>}/> {/* TODO */}
         <Route path='/signup' element={<Signup/>}/> {/* TODO */}
         <Route path='*' element={<NotFound/>}/> {/* TODO */}
+        <Route path='/' element={<Home/>}>
         </Route>
       </Routes>
       <Footer/>
