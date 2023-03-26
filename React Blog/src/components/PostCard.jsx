@@ -1,15 +1,20 @@
-export default function PostCard() {
+import { Link } from "react-router-dom";
+
+export default function PostCard(props) {
+  {console.log(props)}
   return (
     <div className="card lg:card-side bg-blue-900 shadow-xl m-10 h-64">
       <figure className="w-96">
-        <img src="./src/assets/Imgs/pic (1).jpg"/>
+        <img src={props.photo[0].url} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">My Cat Is Watching me</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, culpa?</p>
+        <h2 className="card-title">{props.title}</h2>
+        <p>{props.content}</p>
         <div className="card-actions justify-end">
-          <p>hello this is the author</p>
-          <button className="btn btn-primary">Read More</button>
+          <p>written by {props.user.username}</p>
+          <Link to={`/post/${props._id}`} className="btn btn-primary">
+            Read More
+          </Link>
         </div>
       </div>
     </div>
