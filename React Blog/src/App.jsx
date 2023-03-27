@@ -11,10 +11,9 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
-import EditPost from './pages/EditPost';
+import EditToolPost from './pages/EditToolPost';
 import PostDetails from './pages/PostDetails';
-import Settings from './pages/Settings';
-import RequireAuth from './pages/RequireAuth';
+import RequireAuth from './pages/RequireAuth'; {/* TODO */}
 
 
 function App() {
@@ -24,10 +23,10 @@ function App() {
       <Navbar/>
       <Routes>
         {/* <Route element={RequireAuth}> TODO */}
-          <Route path='/post/:postId' element={<PostDetails/>}/> {/* TODO */}
+          <Route path='/create' element={<EditToolPost/>}/> {/* TODO */}
+          <Route path='/post/:postId' element={<PostDetails/>}/>
           <Route path='/profile/:userId' element={<Profile/>}/> {/* TODO */}
-          <Route path='/post/edit/:postId' element={<EditPost/>}/> {/* TODO */}
-          <Route path='/settings' element={<Settings/>}/> {/* TODO */}
+          <Route path='/post/edit/:postId' element={<EditToolPost/>}/> {/* TODO */}
         {/* </Route> */}
         <Route path='/login' element={<Login/>}/> {/* TODO */}
         <Route path='/signup' element={<Signup/>}/> {/* TODO */}

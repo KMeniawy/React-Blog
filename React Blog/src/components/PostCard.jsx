@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+const count = 50;
 export default function PostCard(props) {
   {console.log(props)}
   return (
@@ -9,7 +9,7 @@ export default function PostCard(props) {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{props.title}</h2>
-        <p>{props.content}</p>
+        <p>{props.content.slice(0,count)+(props.content.length>count ? "...": "")}</p>
         <div className="card-actions justify-end">
           <p>written by {props.user.username}</p>
           <Link to={`/post/${props._id}`} className="btn btn-primary">
