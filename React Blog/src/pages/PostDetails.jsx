@@ -47,8 +47,8 @@ export default function PostDetails() {
             </h3>
             <div className="float-right mt-2">
               <span className="mx-2">
-                <Link to={""} className="inline-block">
-                  <EditPost postid={postData.data._id} />
+                <Link to={`../post/edit/${urlParam.postId}`} className="inline-block">
+                  <EditPost />
                 </Link>
               </span>
               <span>
