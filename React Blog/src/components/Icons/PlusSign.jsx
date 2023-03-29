@@ -5,7 +5,7 @@ const PlusSign = () => {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={3}
-      stroke="#212121"
+      stroke="#F28C18"
       className="w-8 h-8"
     >
       <path

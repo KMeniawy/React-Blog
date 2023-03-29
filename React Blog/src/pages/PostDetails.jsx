@@ -40,7 +40,7 @@ export default function PostDetails() {
         </div>
       )}
       {postData.data && (
-        <div className="place-items-center mx-auto my-10 bg-blue-900 p-4 rounded-xl">
+        <div className="place-items-center mx-auto my-10  bg-indigo-900 p-4 rounded-xl">
           <div className=" place-items-start">
             <h3 className="font-bold text-2xl inline-block">
               {postData.data.title}

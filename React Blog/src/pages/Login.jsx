@@ -1,41 +1,78 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+
 export default function Login() {
+  const navigate = useNavigate();
+  //--------------states-----------------
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+  //-------------handlers-----------------
+  const handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+    console.log({ ...userData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3001/v1/users/sign-in",
+        userData
+      );
+      console.log(data);
+      localStorage.setItem("userToken", data.data.access_token);
+      let x = localStorage.getItem("userToken");
+      console.log(x);
+      navigate("../");
+    } catch (error) {
+      console.log("this is error log",error.response.data.message);
+      alert(error.response.data.message);
+    }
+  };
   return (
-    <>
-      <h2 className="text-amber-600 px-24 pt-4 text-5xl">Login</h2>
-      <div className="flex flex-col m-20 justify-around items-center">
-        {/* <label htmlFor="email">Email</label> */}
+    <div className="mx-20 mt-10">
+      <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Login</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="float-left 2xl:mt-32 xl:ml-20 md:ml-10  2xl:ml-40 w-1/3"
+      >
         <input
           type="email"
           name="email"
-          id="email"
-          required="true"
+          value={userData.email}
+          required={true}
+          onChange={handleChange}
           placeholder="Email"
-          className="input input-ghost w-full max-w-xs m-5 text-white focus:outline-amber-600 focus:text-amber-600"
+          className="input input-ghost w-full max-w-xs text-white focus:outline-amber-600 focus:text-amber-600 block mb-4"
         />
-        {/* <label htmlFor="password">Password</label> */}
         <input
           type="password"
           name="password"
-          id="password"
-          required="true"
+          required={true}
+          value={userData.password}
+          onChange={handleChange}
           placeholder="Password"
-          className="input input-ghost w-full max-w-xs text-white focus:outline-amber-600 focus:text-amber-600"
+          className="input input-ghost w-full max-w-xs text-white focus:outline-amber-600 focus:text-amber-600 block mb-4"
         />
-        <div className="m-2">
-          <label htmlFor="remember" className="m-4">
-            Remember me
-          </label>
-          <input
-            type="checkbox"
-            name="remember"
-            id="remember"
-            className="checkbox checkbox-warning checkbox-xs"
-          />
-        </div>
         <button className="btn md:btn-md m-5 bg-amber-600 text-black hover:text-white">
           Login
         </button>
+      </form>
+      <div className="w-2/5 float-right container">
+        <Link
+          to={"../signup"}
+          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[73%] 2xl:left-[70%] xl:top-[67%] xl:left-[67%] md:top-[50%] md:left-[57%]"
+        >
+          don't have an account
+        </Link>
+        <img
+          src="https://ik.imagekit.io/0gnwjf9dd/blog/Flat_vector_illustration_of_stock_trader_working_on_computer__Converted_.png?updatedAt=1680081129093"
+          className="rounded-tr-3xl rounded-bl-3xl block float-right"
+        />
       </div>
-    </>
+    </div>
   );
 }
