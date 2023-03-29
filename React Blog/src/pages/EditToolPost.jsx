@@ -60,11 +60,22 @@ const CreatePost = () => {
         <>
         <div className="mx-20 mt-10">
         <h1 className="text-amber-600 px-24 pt-4 text-5xl mb-40">{urlParam.postId? "edit post" :"Add new post"}</h1>
-        <form className="border-primary border-2 xl:mt-32 xl:ml-20 md:ml-10  2xl:ml-40 w-1/3 p-5 rounded-lg">
-          <input type="text" className="input input-bordered w-full max-w-xs m-5 text-white border-amber-600 focus:outline-amber-600 focus:text-amber-600" />
-          <input type="text" className="input input-bordered w-full max-w-xs m-5 text-white border-amber-600 focus:outline-amber-600 focus:text-amber-600"/>
-          <input type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs m-5 block "/>
-          <button className="btn md:btn-md m-10 bg-[#F28C18] text-black hover:text-white">click me</button>
+        <form className="mx-auto xl:w-4/12 2xl:w-2/5">
+          <div className="flex flex-col m-20 justify-around pt-20 px-10 border-amber-600 border-2 rounded-3xl">
+          <label htmlFor="title" className="text-amber-600 font-bold mx-3.5">
+            Title
+          </label>
+          <input type="text" name="title" className="input input-bordered w-full max-w-xs m-5 text-white border-amber-600 focus:outline-amber-600 focus:text-amber-600 mx-auto" />
+          <label htmlFor="content" className="text-amber-600 font-bold mx-3.5">
+            Content
+          </label>
+          <textarea name="content" cols="20" rows="3" className="textarea textarea-primary w-full max-w-xs m-5 text-white border-amber-600 focus:outline-amber-600 focus:text-amber-600 mx-auto"></textarea>
+          <label htmlFor="image" className="text-amber-600 font-bold mx-3.5">
+            Image
+          </label>
+          <input type="file" name="content" className="file-input file-input-bordered file-input-primary w-full max-w-xs m-5 block mx-auto"/>
+          <button className="btn md:btn-md m-10 bg-[#F28C18] text-black hover:text-white w-1/2 mx-auto">{urlParam.postId? "Update" :"Add"}</button>
+          </div>
         </form>
 
         </div>

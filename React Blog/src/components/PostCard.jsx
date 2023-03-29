@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 const count = 50;
 export default function PostCard(props) {
-  {console.log(props)}
   return (
     <div className="card lg:card-side bg-indigo-900 shadow-xl m-10 h-64">
       <figure className="w-96">

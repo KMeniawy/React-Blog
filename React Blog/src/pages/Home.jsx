@@ -18,7 +18,6 @@ export default function Home() {
       .then((res) => setPostsData(res.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(postsData);
   return (
     <div className="m-20 p-5">
       {postsData.length === 0 && (
@@ -28,7 +27,6 @@ export default function Home() {
       )}
       {postsData.length !== 0 && (
         <>
-          {console.log("this before mapping", postsData.data)}
           {(postsData?.data).map((item) => (
             <PostCard key={item._id} {...item} />
           ))}

@@ -34,7 +34,7 @@ export default function Signup() {
       <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
       <form onSubmit={handleSubmit} className="mx-auto xl:w-4/12 2xl:w-2/5">
         <div className="flex flex-col m-20 justify-around pt-20 px-10 border-amber-600 border-2 rounded-3xl">
-          <label htmlFor="name" className="text-amber-600 font-bold mx-3.5">
+          <label htmlFor="username" className="text-amber-600 font-bold mx-3.5">
             Username
           </label>
           <input
