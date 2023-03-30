@@ -33,6 +33,7 @@ export default function Home() {
           <br />
         </>
       )}
+      <>
       <div className="flex justify-center mt-10">
         {/* NOTE : this is the end of the news feed */}
         <hr className="border-amber-600 border-2 relative w-20 my-10 mr-2" />
@@ -40,6 +41,7 @@ export default function Home() {
         <CheckNews className="p-1" />
         <hr className="border-amber-600 border-2 relative w-20 my-10 ml-2" />
       </div>
+      </>
       <Link to={'/create'} className="btn-circle bg-[#413333] fixed bottom-[2%] right-[2%] p-2">{<PlusSign />}</Link>
     </div>
   );

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import BlogContext from "../store/Context";
@@ -9,6 +9,7 @@ import BlogContext from "../store/Context";
 const CreatePost = () => {
   const urlParam = useParams();
   const { user } = useContext(BlogContext);
+  const navigate = useNavigate();
   //--------------states-----------------
   const [formData, setFormData] = useState({
     title: "",
@@ -67,6 +68,9 @@ const CreatePost = () => {
       console.log(error);
       toast.error(error.response.data.message);
     }
+    setTimeout(() => {
+      navigate("/");
+    }, 300);
   };
 
   //--------------effect-----------------
