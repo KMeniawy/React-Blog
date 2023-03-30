@@ -18,16 +18,15 @@ function App() {
   return (
     <div>
       <Routes>
-          {/* <Route element={<RequireAuth />}> */}
-            {/* {user?.userToken && <Route path="/" element={<Home/>}/>} */}
+          <Route element={<RequireAuth />}>
             <Route path="/create" element={<EditToolPost />} /> {/* TODO */}
             <Route path="/profile/:userId" element={<Profile />} /> {/* TODO */}
             <Route path="/post/edit/:postId" element={<EditToolPost />} />{/* TODO */}
             <Route path="/post/:postId" element={<PostDetails />} />
             <Route path="/" element={<Home />}/>
             <Route path="*" element={<NotFound />} /> {/* TODO */}
-          {/* </Route> */}
-          <Route path="/login" element={<Login />} /> {/* TODO */}
+          </Route>
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>

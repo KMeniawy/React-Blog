@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 export default function Signup() {
   //--------------states-----------------
@@ -25,7 +25,7 @@ export default function Signup() {
       console.log(x);
     } catch (error) {
       console.log(error);
-      toast(error);
+      toast.error(error.response.data.message);
     }
   };
   return (
@@ -86,7 +86,6 @@ export default function Signup() {
           </button>
         </div>
       </form>
-      <ToastContainer />
     </div>
   );
 }

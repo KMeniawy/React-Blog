@@ -1,23 +1,32 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
 import DeletePost from "../components/Icons/DeletePost";
 import EditPost from "../components/Icons/EditPost";
 import WrittenBy from "../components/Icons/WrittenBy";
 import Loader from "../components/shared/Loader";
+import BlogContext from "../store/Context";
 
 export default function PostDetails() {
   const urlParam = useParams();
+  const { user } = useContext(BlogContext);
+  console.log(user.id);
+  const navigate = useNavigate();
   //--------------states-----------------
   const [postData, setPostData] = useState([]);
-
+  const [author, setAuthor] = useState("");
   //-------------handlers----------------
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:3001/v1/post/${urlParam.postId}`)
+      .delete(`http://localhost:3001/v1/post/${urlParam.postId}`, {
+        headers: { Authorization: "Bearer " + user.token },
+      })
       .then((res) => {
         console.log(res.data);
+        setTimeout(() => {
+          navigate("/");
+        }, 300);
       });
   };
 
@@ -28,10 +37,11 @@ export default function PostDetails() {
         `http://localhost:3001/v1/post/${urlParam.postId}`
       );
       setPostData(data.data);
+      console.log(data.data.data.user._id);
+      setAuthor(data.data.data.user._id);
     };
     getPost().catch(console.error);
-  }, []);
-
+  }, [author]);
   return (
     <div className="flex justify-center h-1/2 items">
       {postData.length === 0 && (
@@ -46,16 +56,28 @@ export default function PostDetails() {
               {postData.data.title}
             </h3>
             <div className="float-right mt-2">
-              <span className="mx-2">
-                <Link to={`../post/edit/${urlParam.postId}`} className="inline-block">
-                  <EditPost />
-                </Link>
-              </span>
-              <span>
-                <Link to={"../"} className="inline-block" onClick={()=>handleDelete()}>
-                  <DeletePost/>
-                </Link>
-              </span>
+              {author === user.id ? (
+                <>
+                  <span className="mx-2">
+                    <Link
+                      to={`../post/edit/${urlParam.postId}`}
+                      className="inline-block"
+                    >
+                      <EditPost />
+                    </Link>
+                  </span>
+                  <span>
+                    <button
+                      className="inline-block"
+                      onClick={() => handleDelete()}
+                    >
+                      <DeletePost />
+                    </button>
+                  </span>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <img

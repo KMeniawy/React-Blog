@@ -1,6 +1,18 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
 import UserIcon from "../Icons/UserIcon";
-import { Link } from "react-router-dom";
+import BlogContext from "../../store/Context";
+
 export default function Navbar() {
+  const { setUser } = useContext(BlogContext);
+  const navigate = useNavigate();
+  const handleLogout = ()=>{
+    localStorage.removeItem("userID");
+    localStorage.removeItem("userToken");
+    setUser(false);
+    navigate("/");
+  }
   return (
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 ml-5">
@@ -27,7 +39,7 @@ export default function Navbar() {
               <a className="text-amber-500">Settings</a>
             </li>
             <li>
-              <a className="text-amber-500">Logout</a>
+              <a className="text-amber-500" onClick={handleLogout}>Logout</a>
             </li>
           </ul>
         </div>

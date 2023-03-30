@@ -1,14 +1,13 @@
 import React ,{ useEffect, useState } from "react";
 
 const BlogContext = React.createContext({
-    user: undefined ,
-    setUser:""
+    user: "",
+    setUser:"",
   });
   export const BlogContextProvider = (props) => {
-    const [user, setUser] = useState();
-    useEffect(()=>{
-        localStorage.getItem("userToken")? setUser(true) : setUser(false) ;
-    },[])
+    const userToken = localStorage.getItem("userToken");
+    const userID = localStorage.getItem("userID");
+    const [user, setUser] = useState(userID?{id:userID,token:userToken}:"");
     return <BlogContext.Provider value={{ user, setUser }}>{props.children}</BlogContext.Provider>;
   };
   export default BlogContext;

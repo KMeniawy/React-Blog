@@ -1,9 +1,12 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import BlogContext from "../store/Context";
 
 export default function Login() {
+  const { setUser } = useContext(BlogContext);
   const navigate = useNavigate();
   //--------------states-----------------
   const [userData, setUserData] = useState({
@@ -22,14 +25,14 @@ export default function Login() {
         "http://localhost:3001/v1/users/sign-in",
         userData
       );
-      console.log(data);
+      console.log(data.data);
       localStorage.setItem("userToken", data.data.access_token);
-      let x = localStorage.getItem("userToken");
-      console.log(x);
-      navigate("../");
+      localStorage.setItem("userID", data.data.user._id);
+      setUser({id:data.data.user._id,token:data.data.access_token});
+      navigate("/");
     } catch (error) {
       console.log("this is error log",error.response.data.message);
-      alert(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
   return (
