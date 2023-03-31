@@ -70,7 +70,7 @@ const CreatePost = () => {
     }
     setTimeout(() => {
       navigate("/");
-    }, 300);
+    }, 500);
   };
 
   //--------------effect-----------------
@@ -126,7 +126,7 @@ const CreatePost = () => {
               type="file"
               name="photo"
               onChange={handleChangePhoto}
-              className="file-input file-input-bordered file-input-primary w-full max-w-xs m-5 block mx-auto"
+              className="file-input file-input-secondary border-[#F28C18] file-input-bordered w-full max-w-xs m-5 block mx-auto"
             />
             <button className="btn md:btn-md m-10 bg-[#F28C18] text-black hover:text-white w-1/2 mx-auto">
               {urlParam.postId ? "Update" : "Add"}

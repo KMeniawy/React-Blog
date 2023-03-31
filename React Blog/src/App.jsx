@@ -7,7 +7,6 @@ import BlogContext from "./store/Context";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import EditToolPost from "./pages/EditToolPost";
 import PostDetails from "./pages/PostDetails";
@@ -20,7 +19,6 @@ function App() {
       <Routes>
           <Route element={<RequireAuth />}>
             <Route path="/create" element={<EditToolPost />} /> {/* TODO */}
-            <Route path="/profile/:userId" element={<Profile />} /> {/* TODO */}
             <Route path="/post/edit/:postId" element={<EditToolPost />} />{/* TODO */}
             <Route path="/post/:postId" element={<PostDetails />} />
             <Route path="/" element={<Home />}/>

@@ -50,7 +50,7 @@ export default function PostDetails() {
         </div>
       )}
       {postData.data && (
-        <div className="place-items-center mx-auto my-10  bg-indigo-900 p-4 rounded-xl">
+        <div className="place-items-center mx-auto my-10  bg-indigo-900 p-4 rounded-xl w-1/2">
           <div className=" place-items-start">
             <h3 className="font-bold text-2xl inline-block">
               {postData.data.title}
@@ -82,7 +82,7 @@ export default function PostDetails() {
           </div>
           <img
             src={postData.data.photo[0].url}
-            className="w-50 rounded-lg my-5"
+            className="w-50 rounded-lg my-5 mx-auto"
           />
           <p className="text-lg mb-5">{postData.data.content}</p>
           <div className="text-center">

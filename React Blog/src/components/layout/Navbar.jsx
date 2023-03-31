@@ -3,9 +3,13 @@ import { useContext } from "react";
 
 import UserIcon from "../Icons/UserIcon";
 import BlogContext from "../../store/Context";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Navbar() {
-  const { setUser } = useContext(BlogContext);
+  const [username , setUsername] = useState("");
+  const { setUser,user } = useContext(BlogContext);
   const navigate = useNavigate();
   const handleLogout = ()=>{
     localStorage.removeItem("userID");
@@ -13,12 +17,23 @@ export default function Navbar() {
     setUser(false);
     navigate("/");
   }
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await axios.get(
+        `http://localhost:3001/v1/user/profile/${user.id}`
+      );
+      console.log(data.data.data);
+      setUsername(data.data.data.username);
+    };
+    getUser().catch(console.error);
+  }, []);
   return (
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 ml-5">
         <Link to={"/"} className="btn btn-ghost normal-case text-2xl font-nunito border-none">Bloggy</Link>
       </div>
       <div className="flex-none mr-5">
+        <p className="pr-10 text-[#212121]">hello, <span className="font-bold">{username}</span></p>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-150">
@@ -29,15 +44,6 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a className="text-amber-500">
-                Profile
-                {/* <span className="badge">New</span> */}
-              </a>
-            </li>
-            <li>
-              <a className="text-amber-500">Settings</a>
-            </li>
             <li>
               <a className="text-amber-500" onClick={handleLogout}>Logout</a>
             </li>
