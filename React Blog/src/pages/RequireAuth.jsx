@@ -8,7 +8,6 @@ import BlogContext from "../store/Context";
 export default function RequireAuth(){
    const { user } = useContext(BlogContext);
    const location = useLocation();
-   console.log(user);
    return(
     user ? (
         <>

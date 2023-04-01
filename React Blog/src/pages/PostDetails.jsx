@@ -11,7 +11,6 @@ import BlogContext from "../store/Context";
 export default function PostDetails() {
   const urlParam = useParams();
   const { user } = useContext(BlogContext);
-  console.log(user.id);
   const navigate = useNavigate();
   //--------------states-----------------
   const [postData, setPostData] = useState([]);
@@ -23,7 +22,6 @@ export default function PostDetails() {
         headers: { Authorization: "Bearer " + user.token },
       })
       .then((res) => {
-        console.log(res.data);
         setTimeout(() => {
           navigate("/");
         }, 300);
@@ -37,7 +35,6 @@ export default function PostDetails() {
         `https://bloggy-kmeniawy.onrender.com/v1/post/${urlParam.postId}`
       );
       setPostData(data.data);
-      console.log(data.data.data.user._id);
       setAuthor(data.data.data.user._id);
     };
     getPost().catch(console.error);

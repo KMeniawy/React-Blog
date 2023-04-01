@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroller";
+import { toast } from "react-toastify";
 
 import PostCard from "../components/PostCard";
 import Loader from "../components/shared/Loader";
@@ -36,7 +37,7 @@ export default function Home() {
       .then((res) => {
         setPostsData(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error(err));
   }, []);
   return (
     <div className="m-20 p-5">

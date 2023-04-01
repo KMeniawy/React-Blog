@@ -16,7 +16,6 @@ export default function Login() {
   //-------------handlers-----------------
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
-    console.log({ ...userData, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,13 +24,11 @@ export default function Login() {
         "https://bloggy-kmeniawy.onrender.com/v1/users/sign-in",
         userData
       );
-      console.log(data.data);
       localStorage.setItem("userToken", data.data.access_token);
       localStorage.setItem("userID", data.data.user._id);
       setUser({id:data.data.user._id,token:data.data.access_token});
       navigate("/");
     } catch (error) {
-      console.log("this is error log",error.response.data.message);
       toast.error(error.response.data.message);
     }
   };

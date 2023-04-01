@@ -13,18 +13,14 @@ export default function Signup() {
   //-------------handlers-----------------
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
-    console.log({ ...userData, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post("https://bloggy-kmeniawy.onrender.com/v1/users/sign-up", userData);
-      console.log(data);
       localStorage.setItem("userToken",data.data.access_token);
       let x = localStorage.getItem("userToken");
-      console.log(x);
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
     }
   };

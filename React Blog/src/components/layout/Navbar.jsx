@@ -23,7 +23,6 @@ export default function Navbar() {
       const data = await axios.get(
         `https://bloggy-kmeniawy.onrender.com/v1/user/profile/${user.id}`
       );
-      console.log(data.data.data);
       setUsername(data.data.data.username);
     };
     getUser().catch(console.error);
