@@ -19,7 +19,7 @@ export default function PostDetails() {
   //-------------handlers----------------
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:3001/v1/post/${urlParam.postId}`, {
+      .delete(`https://bloggy-kmeniawy.onrender.com/v1/post/${urlParam.postId}`, {
         headers: { Authorization: "Bearer " + user.token },
       })
       .then((res) => {
@@ -34,7 +34,7 @@ export default function PostDetails() {
   useEffect(() => {
     const getPost = async () => {
       const data = await axios.get(
-        `http://localhost:3001/v1/post/${urlParam.postId}`
+        `https://bloggy-kmeniawy.onrender.com/v1/post/${urlParam.postId}`
       );
       setPostData(data.data);
       console.log(data.data.data.user._id);
@@ -45,14 +45,14 @@ export default function PostDetails() {
   return (
     <div className="flex justify-center h-1/2 items">
       {postData.length === 0 && (
-        <div className=" my-40">
+        <div className=" my-80">
           <Loader />
         </div>
       )}
       {postData.data && (
         <div className="place-items-center mx-auto my-10  bg-indigo-900 p-4 rounded-xl w-1/2">
           <div className=" place-items-start">
-            <h3 className="font-bold text-2xl inline-block">
+            <h3 className="font-bold text-2xl inline-block font-body">
               {postData.data.title}
             </h3>
             <div className="float-right mt-2">
@@ -84,12 +84,12 @@ export default function PostDetails() {
             src={postData.data.photo[0].url}
             className="w-50 rounded-lg my-5 mx-auto"
           />
-          <p className="text-lg mb-5">{postData.data.content}</p>
+          <p className="text-lg mb-5 font-body">{postData.data.content}</p>
           <div className="text-center">
             <div className="disabled btn-circle bg-primary p-3 mx-auto">
               <WrittenBy />
             </div>
-            <p className="text-lg">{postData.data.user.username}</p>
+            <p className="text-lg font-body">{postData.data.user.username}</p>
           </div>
         </div>
       )}

@@ -37,7 +37,7 @@ const CreatePost = () => {
     fData.append("content", content);
     fData.append("photo", photo[0]);
     await axios
-      .patch(`http://localhost:3001/v1/post/${urlParam.postId}`, fData, {
+      .patch(`https://bloggy-kmeniawy.onrender.com/v1/post/${urlParam.postId}`, fData, {
         headers: { Authorization: "Bearer " + user.token },
       })
       .catch((error) => toast.error(error));
@@ -48,7 +48,7 @@ const CreatePost = () => {
     fData.append("content", content);
     fData.append("photo", photo[0]);
     await axios
-      .post(`http://localhost:3001/v1/post`, fData, {
+      .post(`https://bloggy-kmeniawy.onrender.com/v1/post`, fData, {
         headers: {
           "content-type": "multipart/form-data",
           Authorization: "Bearer " + user.token,
@@ -70,6 +70,7 @@ const CreatePost = () => {
     }
     setTimeout(() => {
       navigate("/");
+      window.location.reload();
     }, 500);
   };
 
@@ -78,7 +79,7 @@ const CreatePost = () => {
     if (urlParam.postId) {
       const getPost = async () => {
         const data = await axios.get(
-          `http://localhost:3001/v1/post/${urlParam.postId}`
+          `https://bloggy-kmeniawy.onrender.com/v1/post/${urlParam.postId}`
         );
         let apiData = data.data.data;
         setTitle(apiData.title);

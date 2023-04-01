@@ -18,7 +18,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:3001/v1/users/sign-up", userData);
+      const { data } = await axios.post("https://bloggy-kmeniawy.onrender.com/v1/users/sign-up", userData);
       console.log(data);
       localStorage.setItem("userToken",data.data.access_token);
       let x = localStorage.getItem("userToken");

@@ -5,7 +5,7 @@ module.exports = {
     './src/**/*.{js,jsx}',
   ],
   theme: {
-    fontFamily:{'nunito': ['monospace', 'Monaco'],'body':['Open Sans']},
+    fontFamily:{'nunito': ['Edu NSW ACT Foundation', 'cursive'],'body':['Edu NSW ACT Foundation','cursive']},
     mytheme: {
       "primary": "#1e40af",
       "secondary": "#9be3f2",

@@ -22,7 +22,7 @@ export default function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/v1/users/sign-in",
+        "https://bloggy-kmeniawy.onrender.com/v1/users/sign-in",
         userData
       );
       console.log(data.data);

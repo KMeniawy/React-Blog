@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&family=Roboto:wght@300;500;700&display=swap');
+
+*{
+    font-family: 'Alkatra', cursive;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Roboto', sans-serif;
+}
