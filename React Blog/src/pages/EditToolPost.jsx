@@ -54,7 +54,7 @@ const CreatePost = () => {
           Authorization: "Bearer " + user.token,
         },
       })
-      .catch((error) => toast.error(error));
+      .catch((error) => console.log(error));
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +67,7 @@ const CreatePost = () => {
       setTimeout(() => {
         navigate("/");
         window.location.reload();
-      }, 500);
+      }, 600);
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -104,7 +104,6 @@ const CreatePost = () => {
               value={title}
               onChange={handleChangeTitle}
               className="input input-bordered w-full max-w-xs m-5 text-white border-amber-600 focus:outline-amber-600 focus:text-amber-600 mx-auto"
-              required
             />
             <label
               htmlFor="content"
@@ -119,7 +118,6 @@ const CreatePost = () => {
               value={content}
               onChange={handleChangeContent}
               className="textarea textarea-primary w-full max-w-xs m-5 text-white border-amber-600 focus:outline-amber-600 focus:text-amber-600 mx-auto"
-              required
             ></textarea>
             <label htmlFor="photo" className="text-amber-600 font-bold mx-3.5">
               Image
@@ -129,7 +127,6 @@ const CreatePost = () => {
               name="photo"
               onChange={handleChangePhoto}
               className="file-input file-input-secondary border-[#F28C18] file-input-bordered w-full max-w-xs m-5 block mx-auto"
-              required
             />
             <button className="btn md:btn-md m-10 bg-[#F28C18] text-black hover:text-white w-1/2 mx-auto">
               {urlParam.postId ? "Update" : "Add"}
