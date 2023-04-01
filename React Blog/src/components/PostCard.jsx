@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const count = 50;
 export default function PostCard(props) {
   return (
-    <div className="card lg:card-side bg-indigo-900 shadow-md m-10 h-64 hover:bg-secondary hover:transition-colors hover:shadow-primary ">
+    <div className="card lg:card-side bg-indigo-900 shadow-md m-10 h-64 hover:bg-secondary hover:shadow-primary hover:transition-all">
       <figure className="w-96">
         <img src={props.photo[0].url} />
       </figure>
