@@ -65,7 +65,7 @@ export default function Login() {
       <div className="w-2/5 float-right container">
         <Link
           to={"../signup"}
-          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[73%] 2xl:left-[70%] xl:top-[67%] xl:left-[67%] md:top-[50%] md:left-[57%]"
+          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[71%] 2xl:left-[70%] xl:top-[72%] xl:left-[69%] md:top-[65%] md:left-[66%]"
         >
           don't have an account
         </Link>

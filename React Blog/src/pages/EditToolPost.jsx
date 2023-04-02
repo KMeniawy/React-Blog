@@ -11,11 +11,6 @@ const CreatePost = () => {
   const { user } = useContext(BlogContext);
   const navigate = useNavigate();
   //--------------states-----------------
-  const [formData, setFormData] = useState({
-    title: "",
-    content: "",
-    photo: [],
-  });
   const [photo, setPhoto] = useState([]);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
