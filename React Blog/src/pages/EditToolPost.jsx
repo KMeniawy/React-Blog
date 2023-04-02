@@ -67,7 +67,7 @@ const CreatePost = () => {
       setTimeout(() => {
         navigate("/");
         window.location.reload();
-      }, 600);
+      }, 1000);
     } catch (error) {
       toast.error(error.response.data.message);
     }

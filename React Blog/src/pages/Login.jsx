@@ -27,6 +27,7 @@ export default function Login() {
       localStorage.setItem("userToken", data.data.access_token);
       localStorage.setItem("userID", data.data.user._id);
       setUser({id:data.data.user._id,token:data.data.access_token});
+      
       navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);

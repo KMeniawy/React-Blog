@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function Signup() {
+  const navigate = useNavigate();
   //--------------states-----------------
   const [userData, setUserData] = useState({
     username: "",
@@ -20,6 +21,7 @@ export default function Signup() {
       const { data } = await axios.post("https://bloggy-kmeniawy.onrender.com/v1/users/sign-up", userData);
       localStorage.setItem("userToken",data.data.access_token);
       let x = localStorage.getItem("userToken");
+      navigate("/login");
     } catch (error) {
       toast.error(error.response.data.message);
     }
