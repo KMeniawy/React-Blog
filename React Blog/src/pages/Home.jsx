@@ -49,7 +49,7 @@ export default function Home() {
       {postsData.length !== 0 && (
         <>
         <div className="lg:w-3/4 mx-auto">
-            {(postsData?.data).map((item) => (
+            {(postsData?.data.reverse()).map((item) => (
               <PostCard key={item._id} {...item} />
             ))}
         </div>
