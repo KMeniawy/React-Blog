@@ -21,7 +21,7 @@ export default function Signup() {
       const { data } = await axios.post("https://bloggy-kmeniawy.onrender.com/v1/users/sign-up", userData);
       localStorage.setItem("userToken",data.data.access_token);
       let x = localStorage.getItem("userToken");
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);
     }
