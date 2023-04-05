@@ -27,7 +27,6 @@ export default function Login() {
       localStorage.setItem("userToken", data.data.access_token);
       localStorage.setItem("userID", data.data.user._id);
       setUser({id:data.data.user._id,token:data.data.access_token});
-      
       navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -65,13 +64,13 @@ export default function Login() {
       <div className="w-2/5 float-right container">
         <Link
           to={"../signup"}
-          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[71%] 2xl:left-[70%] xl:top-[72%] xl:left-[69%] md:top-[65%] md:left-[66%]"
+          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[71%] 2xl:left-[70%] xl:top-[72%] xl:left-[69%] lg:top-[62%] lg:left-[66%] md:top-[56%] md:left-[64%] sm:top-[50%] sm:left-[58%]"
         >
           don't have an account
         </Link>
         <img
           src="https://ik.imagekit.io/0gnwjf9dd/blog/Flat_vector_illustration_of_stock_trader_working_on_computer__Converted_.png?updatedAt=1680081129093"
-          className="rounded-tr-3xl rounded-bl-3xl block float-right"
+          className="rounded-tr-3xl rounded-bl-3xl block float-right md:block sm:hidden"
         />
       </div>
     </div>

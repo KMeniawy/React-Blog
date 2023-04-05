@@ -29,9 +29,14 @@ export default function Signup() {
   return (
     //username,email (unique),password,repeat password
     <div className="mx-20 mt-10">
-      <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
+      <div>
+        <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
+      </div>
+      <div>
+        <img src="https://www.freepik.com/free-vector/set-background-designs-deep-purple_3594010.htm#query=gray%20and%20purple&position=1&from_view=search&track=ais"/>
+      </div>
       <form onSubmit={handleSubmit} className="mx-auto xl:w-4/12 2xl:w-2/5">
-        <div className="flex flex-col m-20 justify-around pt-20 px-10 border-amber-600 border-2 rounded-3xl">
+        <div className="flex flex-col m-20 justify-around pt-20 pl-10 mr-5 rounded-3xl">
           <label htmlFor="username" className="text-amber-600 font-bold mx-3.5">
             Username
           </label>
@@ -78,7 +83,7 @@ export default function Signup() {
             onChange={handleChange}
           />
           <button
-            className="btn md:btn-md m-10 bg-[#F28C18] text-black hover:text-white"
+            className="btn md:btn-md mt-10 ml-5 bg-[#F28C18] text-black hover:text-white w-1/2"
           >
             Sign up
           </button>
