@@ -27,7 +27,7 @@ export default function Signup() {
     }
   };
   return (
-    <div className="px-20 p-10 bg-[url('src/components/BgTest.svg')] bg-no-repeat bg-cover">
+    <div className="px-20 p-10 bg-[url('https://ik.imagekit.io/0gnwjf9dd/Blob_Group.svg?updatedAt=1680897450698')] bg-no-repeat bg-cover">
       <div>
         <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
       </div>
