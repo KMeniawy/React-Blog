@@ -12,6 +12,9 @@ export default function Navbar() {
   const [username , setUsername] = useState("");
   const { setUser,user } = useContext(BlogContext);
   const navigate = useNavigate();
+  const handleGoToProfile = ()=>{
+    navigate(`user/${user.id}`);
+  }
   const handleLogout = ()=>{
     localStorage.removeItem("userID");
     localStorage.removeItem("userToken");
@@ -47,7 +50,7 @@ export default function Navbar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to={`user/${user.id}`} className="text-amber-500 font-body">Profile</Link>
+              <a onClick={handleGoToProfile} className="text-amber-500 font-body">Profile</a>
             </li>
             <li>
               <a className="text-amber-500 font-body" onClick={handleLogout}>Logout</a>

@@ -24,7 +24,7 @@ export default function Profile() {
       setProfile(data.data.data);
     };
     getUser().catch(console.error());
-  }, []);
+  }, [urlParam]);
   return (
     <>
       <div className="flex justify-center h-1/2 items mt-20">
