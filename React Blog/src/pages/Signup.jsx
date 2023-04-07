@@ -27,7 +27,6 @@ export default function Signup() {
     }
   };
   return (
-    //username,email (unique),password,repeat password
     <div className="mx-20 mt-10">
       <div>
         <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>

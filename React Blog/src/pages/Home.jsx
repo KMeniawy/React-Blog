@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { render } from "react-dom";
 import { Link } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { toast } from "react-toastify";
 
 import PostCard from "../components/PostCard";
@@ -13,50 +13,58 @@ import NewsFeedEnd from "../components/NewsFeedEnd";
 export default function Home() {
   //--------------states-----------------
   const [postsData, setPostsData] = useState([]);
-  const [shownData, setShownData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [postsLength, setPostsLength] = useState(3);
+  const [length, setLength] = useState(3)
+  const [viewedData, setViewData] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
   //-------------handlers----------------
-  const handleShowData = function () {
-    setTimeout(() => {
-      setShownData(postsData);
-    }, 300);
-  };
-  const isLoading = ()=>{
-    if (shownData.length === postsData.length) {
-      setLoading(false);
+  const fetchData = function () {
+    if (length<=postsData.length) {
+      setTimeout(() => {
+        setLength(length+1);
+        setViewData(postsData.slice(0,length));
+      }, 500);
+    }else{
+      setHasMore(false)
     }
-  }
-  const handleAddLength = function () {
-    setPostsLength(postsLength + 1);
   };
   //--------------effect-----------------
   useEffect(() => {
     axios
       .get("https://bloggy-kmeniawy.onrender.com/v1/post")
       .then((res) => {
-        setPostsData(res.data);
+        setPostsData(res.data.data.reverse());
+        setViewData(res.data.data.slice(0,2));
       })
       .catch((err) => toast.error(err));
   }, []);
+
   return (
     <div className="m-20 p-5">
-      {postsData.length === 0 && (
-        <div className="flex justify-center my-80 mb-10">
-          <Loader />
-        </div>
-      )}
-      {postsData.length !== 0 && (
-        <>
-        <div className="lg:w-3/4 mx-auto">
-            {(postsData?.data.reverse()).map((item) => (
-              <PostCard key={item._id} {...item} />
-            ))}
-        </div>
-            <br />
-          <NewsFeedEnd/>
-        </>
-      )}
+      {(viewedData.length === 0 )? 
+        ( <div className="my-[20%]"><br /></div> ):"" }
+      <InfiniteScroll
+      dataLength={viewedData.length}
+      next={fetchData}
+      hasMore={hasMore}
+      scrollThreshold="30%"
+      loader={<div className="flex justify-center my-50 mb-10">
+      <Loader />
+      <br />
+    </div>}
+      endMessage={<NewsFeedEnd/>}
+      >
+        {postsData.length !== 0 && (
+          <>
+          <div className="lg:w-3/4 mx-auto">
+              {viewedData?.map((item) => (
+                <PostCard key={item._id} {...item} />
+              ))}
+          </div>
+              <br />
+
+          </>
+        )}
+      </InfiniteScroll>
       <Link
         to={"/create"}
         className="btn-circle bg-[#413333] fixed bottom-[2%] right-[2%] p-2"
