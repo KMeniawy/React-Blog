@@ -28,14 +28,14 @@ export default function Navbar() {
     getUser().catch(console.error);
   }, []);
   return (
-    <div className="navbar bg-primary text-primary-content">
+    <div className="navbar bg-primary text-primary-content fixed z-10 top-0 ">
       <div className="flex-1 ml-5">
         <Link to={"/"} className="btn btn-ghost normal-case text-2xl font-nunito border-none">
         <ChatBubble className="ml-1"/>Bloggy
         </Link>
       </div>
       <div className="flex-none mr-5">
-        <p className="pr-10 text-[#212121] font-body">hello, <span className="font-bold">{username}</span></p>
+        <p className="pr-5 text-[#212121] font-body">hello, <span className="font-bold">{username}</span></p>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-150">
@@ -46,6 +46,9 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <li>
+              <a className="text-amber-500 font-body">Profile</a>
+            </li>
             <li>
               <a className="text-amber-500 font-body" onClick={handleLogout}>Logout</a>
             </li>

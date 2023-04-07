@@ -39,38 +39,40 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="m-20 p-5">
-      {(viewedData.length === 0 )? 
-        ( <div className="my-[20%]"><br /></div> ):"" }
-      <InfiniteScroll
-      dataLength={viewedData.length}
-      next={fetchData}
-      hasMore={hasMore}
-      scrollThreshold="30%"
-      loader={<div className="flex justify-center my-50 mb-10">
-      <Loader />
-      <br />
-    </div>}
-      endMessage={<NewsFeedEnd/>}
-      >
-        {postsData.length !== 0 && (
-          <>
-          <div className="lg:w-3/4 mx-auto">
-              {viewedData?.map((item) => (
-                <PostCard key={item._id} {...item} />
-              ))}
-          </div>
-              <br />
+    <>
+      <div className="m-20 mt-10 mb-30 p-5">
+        {(viewedData.length === 0 )?
+          ( <div className="my-[20%]"><br /></div> ):"" }
+        <InfiniteScroll
+        dataLength={viewedData.length}
+        next={fetchData}
+        hasMore={hasMore}
+        scrollThreshold="30%"
+        loader={<div className="flex justify-center my-50 mb-10">
+        <Loader />
+        <br />
+      </div>}
+        endMessage={<NewsFeedEnd/>}
+        >
+          {postsData.length !== 0 && (
+            <>
+            <div className="lg:w-3/4 mx-auto">
+                {viewedData?.map((item) => (
+                  <PostCard key={item._id} {...item} />
+                ))}
+            </div>
+                <br />
 
-          </>
-        )}
-      </InfiniteScroll>
-      <Link
-        to={"/create"}
-        className="btn-circle bg-[#413333] fixed bottom-[2%] right-[2%] p-2"
-      >
-        {<PlusSign />}
-      </Link>
-    </div>
+            </>
+          )}
+        </InfiniteScroll>
+        <Link
+          to={"/create"}
+          className="btn-circle bg-[#413333] fixed bottom-[2%] right-[2%] p-2"
+        >
+          {<PlusSign />}
+        </Link>
+      </div>
+    </>
   );
 }

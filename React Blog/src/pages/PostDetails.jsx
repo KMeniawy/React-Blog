@@ -40,7 +40,7 @@ export default function PostDetails() {
     getPost().catch(console.error);
   }, [author]);
   return (
-    <div className="flex justify-center h-1/2 items">
+    <div className="flex justify-center h-1/2 items mt-20">
       {postData.length === 0 && (
         <div className=" my-80">
           <Loader />
