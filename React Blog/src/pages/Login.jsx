@@ -34,10 +34,10 @@ export default function Login() {
   };
   return (
     <div className="mx-20 mt-10">
-      <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Login</h2>
+      <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-10">Login</h2>
       <form
         onSubmit={handleSubmit}
-        className="float-left 2xl:mt-32 xl:ml-20 md:ml-10  2xl:ml-40 w-1/3"
+        className="float-left 2xl:mt-32 xl:ml-20 md:ml-10 2xl:ml-40 w-1/3 border-[1px] border-primary rounded-3xl p-10"
       >
         <input
           type="email"
@@ -64,7 +64,7 @@ export default function Login() {
       <div className="w-2/5 float-right container">
         <Link
           to={"../signup"}
-          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[71%] 2xl:left-[70%] xl:top-[72%] xl:left-[69%] lg:top-[62%] lg:left-[66%] md:top-[56%] md:left-[64%] sm:top-[50%] sm:left-[58%]"
+          className="btn rounded-full md:btn-md m-5 bg-amber-600 text-black hover:text-white border-none absolute 2xl:top-[61%] 2xl:left-[70%] xl:top-[52%] xl:left-[69%] lg:top-[52%] lg:left-[66%] md:top-[42%] md:left-[64%] sm:top-[50%] sm:left-[58%]"
         >
           don't have an account
         </Link>

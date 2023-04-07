@@ -27,15 +27,12 @@ export default function Signup() {
     }
   };
   return (
-    <div className="mx-20 mt-10">
+    <div className="px-20 p-10 bg-[url('src/components/BgTest.svg')] bg-no-repeat bg-cover">
       <div>
         <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
       </div>
-      <div>
-        <img src="https://www.freepik.com/free-vector/set-background-designs-deep-purple_3594010.htm#query=gray%20and%20purple&position=1&from_view=search&track=ais"/>
-      </div>
-      <form onSubmit={handleSubmit} className="mx-auto xl:w-4/12 2xl:w-2/5">
-        <div className="flex flex-col m-20 justify-around pt-20 pl-10 mr-5 rounded-3xl">
+      <form onSubmit={handleSubmit} className="mx-auto xl:w-4/12 2xl:w-2/5 bg-base-100 p-10 rounded-3xl">
+        <div className="flex flex-col m-20 justify-around py-5 items-center rounded-3xl">
           <label htmlFor="username" className="text-amber-600 font-bold mx-3.5">
             Username
           </label>
