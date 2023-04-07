@@ -31,7 +31,7 @@ export default function Signup() {
       <div>
         <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
       </div>
-      <form onSubmit={handleSubmit} className="mx-auto xl:w-4/12 2xl:w-2/5 bg-base-100 p-10 rounded-3xl">
+      <form onSubmit={handleSubmit} className="mx-auto w-3/5 2xl:w-2/5 bg-base-100 p-10 rounded-3xl">
         <div className="flex flex-col m-20 justify-around py-5 items-center rounded-3xl">
           <label htmlFor="username" className="text-amber-600 font-bold mx-3.5">
             Username
