@@ -29,7 +29,7 @@ export default function Signup() {
   return (
     <div className="px-20 p-10 bg-[url('https://ik.imagekit.io/0gnwjf9dd/Blob_Group.svg?updatedAt=1680897450698')] bg-no-repeat bg-cover">
       <div>
-        <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-40">Sign up</h2>
+        <h2 className="text-amber-600 px-24 pt-4 text-5xl mb-10">Sign up</h2>
       </div>
       <form onSubmit={handleSubmit} className="mx-auto w-3/5 2xl:w-2/5 bg-base-100 p-10 rounded-3xl">
         <div className="flex flex-col m-20 justify-around py-5 items-center rounded-3xl">
