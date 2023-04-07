@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import EditToolPost from "./pages/EditToolPost";
 import PostDetails from "./pages/PostDetails";
 import RequireAuth from "./pages/RequireAuth";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -18,9 +19,10 @@ function App() {
     <div>
       <Routes>
           <Route element={<RequireAuth />}>
-            <Route path="/create" element={<EditToolPost />} /> {/* TODO */}
-            <Route path="/post/edit/:postId" element={<EditToolPost />} />{/* TODO */}
+            <Route path="/create" element={<EditToolPost />} />
+            <Route path="/post/edit/:postId" element={<EditToolPost />} />
             <Route path="/post/:postId" element={<PostDetails />} />
+            <Route path="/user/:userId" element={<Profile/>}/> {/* TODO */}
             <Route path="/" element={<Home />}/>
             <Route path="*" element={<NotFound />} /> {/* TODO */}
           </Route>

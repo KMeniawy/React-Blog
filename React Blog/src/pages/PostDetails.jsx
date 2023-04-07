@@ -83,10 +83,12 @@ export default function PostDetails() {
           />
           <p className="text-lg mb-5 font-body">{postData.data.content}</p>
           <div className="text-center">
+            <Link to={`../user/${author}`}>
             <div className="disabled btn-circle bg-primary p-3 mx-auto">
               <WrittenBy />
             </div>
             <p className="text-lg font-body">{postData.data.user.username}</p>
+            </Link>
           </div>
         </div>
       )}

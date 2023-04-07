@@ -1,10 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { toast } from "react-toastify";
+import { useState, useEffect } from "react";
 
 import UserIcon from "../Icons/UserIcon";
 import BlogContext from "../../store/Context";
-import { useEffect } from "react";
-import { useState } from "react";
 import axios from "axios";
 import ChatBubble from "../Icons/ChatBubble";
 
@@ -47,7 +47,7 @@ export default function Navbar() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="text-amber-500 font-body">Profile</a>
+              <Link to={`user/${user.id}`} className="text-amber-500 font-body">Profile</Link>
             </li>
             <li>
               <a className="text-amber-500 font-body" onClick={handleLogout}>Logout</a>
