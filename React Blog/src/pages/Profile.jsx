@@ -28,7 +28,7 @@ export default function Profile() {
   return (
     <>
       <div className="flex justify-center h-1/2 items mt-20">
-        {user.length === 0 && (
+        {profile.length === 0 && (
           <div className=" my-80">
             <Loader />
           </div>
