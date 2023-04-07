@@ -37,14 +37,14 @@ export default function Profile() {
           <>
             <div className="flex justify-center items-center mx-auto flex-col w-[70%] h-[70vh]">
               <ProfileIcon />
-              <div className=" my-10 bg-[#F28C18] p-4 rounded-xl w-[50%] text-center h-[30%]">
-                <h3 className="font-bold text-2xl inline-block font-body text-black mb-10">
+              <div className=" my-10 bg-indigo-900 p-4 rounded-xl w-[50%] text-center h-[30%]">
+                <h3 className="font-bold text-2xl inline-block font-body text-white mb-10">
                   {profile.username}
                 </h3>
                 {user.id !== profile._id && (
                   <>
-                    <h1 className="text-base-100">Follow</h1>
-                    <input type="checkbox" className="toggle toggle-secondary" />
+                    <h1 className="text-white">Follow</h1>
+                    <input type="checkbox" className="toggle toggle-primary" />
                   </>
                 )}
               </div>
