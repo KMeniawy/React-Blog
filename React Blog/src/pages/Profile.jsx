@@ -35,9 +35,9 @@ export default function Profile() {
         )}
         {profile && (
           <>
-            <div className="flex justify-center items-center mx-auto flex-col w-[70%] h-[70vh]">
+            <div className="flex justify-center items-center sm:mx-auto flex-col w-[70%] h-[70vh] xs:mx-5">
               <ProfileIcon />
-              <div className=" my-10 bg-indigo-900 p-4 rounded-xl w-[50%] text-center h-[30%]">
+              <div className=" my-10 bg-indigo-900 p-4 rounded-xl sm:w-[50%] text-center h-[30%] xs:h-[40%]">
                 <h3 className="font-bold text-2xl inline-block font-body text-white mb-10">
                   {profile.username}
                 </h3>

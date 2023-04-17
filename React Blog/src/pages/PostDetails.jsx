@@ -42,12 +42,12 @@ export default function PostDetails() {
   return (
     <div className="flex justify-center h-1/2 items mt-20">
       {postData.length === 0 && (
-        <div className=" my-80">
+        <div className=" md:my-80 xs:my-[30vh]">
           <Loader />
         </div>
       )}
       {postData.data && (
-        <div className="place-items-center mx-auto my-10  bg-indigo-900 p-4 rounded-xl w-1/2">
+        <div className="place-items-center md:mx-auto my-10  bg-indigo-900 p-4 rounded-xl md:w-1/2 xs:w-[90vw]">
           <div className=" place-items-start">
             <h3 className="font-bold text-2xl inline-block font-body">
               {postData.data.title}

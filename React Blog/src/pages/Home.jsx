@@ -9,10 +9,12 @@ import PostCard from "../components/PostCard";
 import Loader from "../components/shared/Loader";
 import PlusSign from "../components/Icons/PlusSign";
 import NewsFeedEnd from "../components/NewsFeedEnd";
+import { useContext } from "react";
+import BlogContext from "../store/Context";
 
 export default function Home() {
+  const { posts:postsData ,setPosts } =useContext(BlogContext);
   //--------------states-----------------
-  const [postsData, setPostsData] = useState([]);
   const [length, setLength] = useState(3)
   const [viewedData, setViewData] = useState([]);
   const [hasMore, setHasMore] = useState(true);
@@ -29,34 +31,29 @@ export default function Home() {
   };
   //--------------effect-----------------
   useEffect(() => {
-    axios
-      .get("https://bloggy-kmeniawy.onrender.com/v1/post")
-      .then((res) => {
-        setPostsData(res.data.data.reverse());
-        setViewData(res.data.data.slice(0,2));
-      })
-      .catch((err) => toast.error(err));
+      setViewData(postsData.splice(0,3))
+      console.log("peep");
   }, []);
 
   return (
     <>
-      <div className="m-20 mt-10 mb-30 p-5">
+      <div className="mx-auto lg:m-20 mt-10 lg:mb-30 xs:my-[10vh] lg:p-5">
         {(viewedData.length === 0 )?
           ( <div className="my-[20%]"><br /></div> ):"" }
         <InfiniteScroll
         dataLength={viewedData.length}
         next={fetchData}
         hasMore={hasMore}
-        scrollThreshold="30%"
-        loader={<div className="flex justify-center my-50 mb-10">
+        scrollThreshold="10%"
+        loader={<div className="flex justify-center my-50 md:mb-[30vh] md:mt-[30vh] xl:mt-[5vh] xs:mb-[40vh]">
         <Loader />
         <br />
       </div>}
         endMessage={<NewsFeedEnd/>}
         >
-          {postsData.length !== 0 && (
+          {viewedData.length !== 0 && (
             <>
-            <div className="lg:w-3/4 mx-auto">
+            <div className="lg:w-3/4 xl:mx-auto lg:ml-[20%] md:ml-[25%]">
                 {viewedData?.map((item) => (
                   <PostCard key={item._id} {...item} />
                 ))}

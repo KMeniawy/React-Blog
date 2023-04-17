@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="footer footer-center p-10 bg-indigo-900 text-primary-content ">
+    <footer className="footer footer-center p-10 bg-indigo-900 text-primary-content lg:mt-0 xs:mt-[10vh]">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

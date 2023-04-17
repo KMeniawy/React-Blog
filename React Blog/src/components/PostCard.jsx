@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 const count = 50;
 export default function PostCard(props) {
   return (
-    <div className="card lg:card-side bg-indigo-900 shadow-md m-10 hover:bg-secondary hover:shadow-primary hover:transition-all sm:h-1/5">
-      <figure className="sm:w-auto lg:w-[400px] bg-white lg:bg-none lg:ml-o">
-        <img src={props.photo[0].url} className="w-auto xl:overflow-hidden lg:bg-center"/>
+    <div className="card lg:card-side bg-indigo-900 shadow-md m-10 hover:bg-secondary hover:shadow-primary hover:transition-all sm:h-1/5 md:w-1/2 lg:w-4/5">
+      <figure className="sm:w-auto bg-white lg:bg-none lg:ml-o ">
+        <img src={props.photo[0].url} className="w-auto xl:overflow-hidden lg:bg-center lg:h-[40vh] lg:w-[200px]"/>
       </figure>
       <div className="card-body">
         <h2 className="card-title font-body">{props.title}</h2>

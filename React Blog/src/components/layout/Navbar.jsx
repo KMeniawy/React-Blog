@@ -38,7 +38,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex-none mr-5">
-        <p className="pr-5 text-[#212121] font-body">hello, <span className="font-bold">{username}</span></p>
+        <p className="pr-5 text-[#212121] font-body sm:block xs:hidden ">hello, <span className="font-bold">{username}</span></p>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-150">
